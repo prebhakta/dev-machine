@@ -92,3 +92,4 @@ brew install --cask alfred
 
 cp .p10k.zsh ~/
 cp .zshrc ~/
+cp karabiner ~/.config/karabiner
