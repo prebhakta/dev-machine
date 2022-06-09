@@ -1,5 +1,7 @@
 source ~/.iterm2_shell_integration.zsh
 
+source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -11,13 +13,13 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/prebhakta/.oh-my-zsh"
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME=""
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -35,8 +37,14 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS=true
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -71,7 +79,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(brew colored-man-pages git git-flow history kubectl node npm osx z zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(brew colored-man-pages git git-flow history kubectl kubectx macos z)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -92,9 +100,6 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -104,43 +109,14 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-
-
-# redefine prompt_context for hiding user@hostname
-prompt_context () { }
-
-eval "$(direnv hook zsh)"
-
-export PATH=$PATH:/Applications/MySQLWorkbench.app/Contents/MacOS
-
-eval "$(rbenv init -)"
-
-#export RUBY_HOME=/usr/local/opt/ruby/bin
-#export PATH=$RUBY_HOME:$PATH
-
-#export GEM_HOME=/Users/prebhakta/.gem
-#export PATH=$GEM_HOME:$PATH
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-#POWERLEVEL9K_MODE="nerdfont-complete"
-#POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-#POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-#POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status ssh root_indicator background_jobs history time)
-#POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="▶ "
-#POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
+eval "$(direnv hook zsh)"
 
-export CLOUDSDK_PYTHON="python2"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/prebhakta/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/prebhakta/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/prebhakta/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/prebhakta/google-cloud-sdk/completion.zsh.inc'; fi
-
-# tanzu cli autocomplete 
-autoload -U compinit; compinit
-
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/terraform terraform
+export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
