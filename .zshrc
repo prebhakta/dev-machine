@@ -1,3 +1,12 @@
+# load homebrew completions
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
+
 source ~/.iterm2_shell_integration.zsh
 
 source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
@@ -111,6 +120,9 @@ source $ZSH/oh-my-zsh.sh
 
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+[[ /opt/homebrew/bin/kubectl ]] && source <(kubectl completion zsh)
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -119,4 +131,14 @@ eval "$(direnv hook zsh)"
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
+export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
+
 export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
+
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+
+alias k=kubectl
+
+alias java8="export JAVA_HOME=`/usr/libexec/java_home -v 1.8`; java -version"
+alias java11="export JAVA_HOME=`/usr/libexec/java_home -v 11`; java -version"
+alias java17="export JAVA_HOME=`/usr/libexec/java_home -v 17`; java -version"
