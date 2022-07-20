@@ -1,10 +1,11 @@
+#!/bin/sh
 set -euxo pipefail
-
-# Xcode
-xcode-select --install
 
 # Homebrew (https://brew.sh/)
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/pbhakta/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 brew autoupdate start --upgrade --cleanup --enable-notification
 
@@ -12,9 +13,12 @@ brew autoupdate start --upgrade --cleanup --enable-notification
 brew install git
 
 # iTerm
-brew cask install iterm2
+brew install --cask iterm2
 
 curl -L https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.zsh
+
+cp .p10k.zsh ~/
+cp .zshrc ~/
 
 # zsh
 brew install zsh
@@ -25,6 +29,12 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 # powerlevel10k
 brew install romkatv/powerlevel10k/powerlevel10k
 
+
+
+exit
+
+
+
 # configure to install MesloLGS NF font but abandon the configuration
 p10k configure
 
@@ -34,9 +44,7 @@ brew install zsh-autosuggestions
 # zsh-syntax-highlighting
 brew install zsh-syntax-highlighting
 
-# change the font in iTerm2 to "MesloLGS NF" (Preferences > Profiles > Text)
-# change the color scheme in iTerm2 to Solarized Dark (Preferences > Profiles > Color)
-# change the Bright Black color in iTerm2 to #666666 (Preferences > Profiles > Color)
+# import the iterm2 profile (Preferences > Profiles)
 
 # java
 brew tap homebrew/cask-versions
@@ -46,14 +54,26 @@ brew install --cask temurin8 temurin11 temurin17
 brew tap vmware-tanzu/carvel
 brew install ytt kbld kapp imgpkg kwt vendir
 
+# pack (https://buildpacks.io/docs/tools/pack/)
+brew install buildpacks/tap/pack
+
+# node
+brew install node
+
 # python
 brew install python
 
 # ruby
 brew install ruby
 
+
+
+exec $SHELL
+
+
+
 # general tools
-brew install certbot curl direnv helm jq kind kubectl kubectx kustomize minikube openssl terraform watch wget
+brew install certbot curl direnv fzf helm jq kind kubectl kubectx kustomize minikube openssl terraform watch wget
 
 # krew (https://krew.sigs.k8s.io/docs/user-guide/setup/install/)
 (
@@ -73,7 +93,7 @@ kubectl krew install neat
 kubectl krew install tree
 
 # visual studio code
-brew cask install visual-studio-code
+brew install --cask visual-studio-code
 
 # aws cli
 brew install awscli
@@ -90,6 +110,7 @@ brew install --cask 1password/tap/1password-cli
 # alfred
 brew install --cask alfred
 
-cp .p10k.zsh ~/
-cp .zshrc ~/
+# sourcetree
+brew install --cask sourcetree
+
 cp karabiner ~/.config/karabiner
