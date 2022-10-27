@@ -92,6 +92,9 @@ kubectl krew install neat
 # tree (https://github.com/ahmetb/kubectl-tree)
 kubectl krew install tree
 
+# knative cli (https://knative.dev/docs/client/install-kn)
+brew install knative/client/kn
+
 # visual studio code
 brew install --cask visual-studio-code
 
