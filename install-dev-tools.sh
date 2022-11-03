@@ -73,7 +73,7 @@ exec $SHELL
 
 
 # general tools
-brew install certbot curl direnv fzf helm jq kind kubectl kubectx kustomize minikube openssl terraform watch wget
+brew install certbot curl direnv fzf helm jq kind kubectl kubectx kustomize minikube openssl terraform watch wget yq
 
 # krew (https://krew.sigs.k8s.io/docs/user-guide/setup/install/)
 (
