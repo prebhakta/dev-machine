@@ -52,7 +52,7 @@ brew install --cask temurin8 temurin11 temurin17
 
 # carvel tools (https://carvel.dev/)
 brew tap vmware-tanzu/carvel
-brew install ytt kbld kapp imgpkg kwt vendir
+brew install ytt kbld kapp imgpkg kwt vendir kctrl
 
 # pack (https://buildpacks.io/docs/tools/pack/)
 brew install buildpacks/tap/pack
