@@ -116,4 +116,7 @@ brew install --cask alfred
 # sourcetree
 brew install --cask sourcetree
 
+# tilt
+brew install tilt-dev/tap/tilt
+
 cp karabiner ~/.config/karabiner
