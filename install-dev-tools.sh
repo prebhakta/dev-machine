@@ -58,6 +58,9 @@ brew install ytt kbld kapp imgpkg kwt vendir kctrl
 brew install buildpacks/tap/pack
 
 # node
+brew install mysql-client
+
+# node
 brew install node
 
 # python

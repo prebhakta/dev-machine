@@ -131,6 +131,8 @@ eval "$(direnv hook zsh)"
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+
 export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
 
 export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
