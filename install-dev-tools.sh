@@ -57,11 +57,14 @@ brew install ytt kbld kapp imgpkg kwt vendir kctrl
 # pack (https://buildpacks.io/docs/tools/pack/)
 brew install buildpacks/tap/pack
 
-# node
+# mysql
 brew install mysql-client
 
 # node
 brew install node
+
+# postgres
+brew install postgresql
 
 # python
 brew install python
