@@ -119,6 +119,13 @@ brew install --cask 1password/tap/1password-cli
 # alfred
 brew install --cask alfred
 
+# tree
+brew install tree
+
+# spring boot
+brew tap spring-io/tap
+brew install spring-boot
+
 # sourcetree
 brew install --cask sourcetree
 
