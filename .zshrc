@@ -139,6 +139,8 @@ export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
 
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 
+export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+
 alias k=kubectl
 
 alias java8="export JAVA_HOME=`/usr/libexec/java_home -v 1.8`; java -version"
