@@ -15,6 +15,9 @@ brew install git
 # iTerm
 brew install --cask iterm2
 
+# tmux
+brew install tmux
+
 curl -L https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.zsh
 
 cp .p10k.zsh ~/
@@ -118,6 +121,9 @@ brew install --cask 1password/tap/1password-cli
 
 # alfred
 brew install --cask alfred
+
+# k9s
+brew install derailed/k9s/k9s
 
 # tree
 brew install tree
