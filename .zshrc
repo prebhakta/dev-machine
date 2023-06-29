@@ -3,8 +3,9 @@ if type brew &>/dev/null
 then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
-  autoload -Uz compinit
+  autoload -Uz compinit bashcompinit
   compinit
+  bashcompinit
 fi
 
 source ~/.iterm2_shell_integration.zsh
@@ -118,6 +119,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+source /opt/homebrew/etc/bash_completion.d/az
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
@@ -128,6 +130,8 @@ source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 eval "$(direnv hook zsh)"
+
+eval "$(op completion zsh)"; compdef _op op
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
