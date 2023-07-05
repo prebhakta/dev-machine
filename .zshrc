@@ -10,7 +10,7 @@ fi
 
 source ~/.iterm2_shell_integration.zsh
 
-source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
+source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -119,12 +119,12 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source /opt/homebrew/etc/bash_completion.d/az
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
-source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
-[[ /opt/homebrew/bin/kubectl ]] && source <(kubectl completion zsh)
+source $(brew --prefix)/etc/bash_completion.d/az
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+source $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+[[ $(brew --prefix)/bin/kubectl ]] && source <(kubectl completion zsh)
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -135,13 +135,13 @@ eval "$(op completion zsh)"; compdef _op op
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
-export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+export PATH="$(brew --prefix)/opt/mysql-client/bin:$PATH"
 
-export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
+export PATH="$(brew --prefix)/opt/openssl@3/bin:$PATH"
 
-export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
+export PATH="$(brew --prefix)/opt/python/libexec/bin:$PATH"
 
-export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export PATH="$(brew --prefix)/opt/ruby/bin:$PATH"
 
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
