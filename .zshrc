@@ -119,11 +119,14 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec
+[[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
+
 source $(brew --prefix)/etc/bash_completion.d/az
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
 source $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+source $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
 [[ $(brew --prefix)/bin/kubectl ]] && source <(kubectl completion zsh)
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -133,20 +136,18 @@ eval "$(direnv hook zsh)"
 
 eval "$(op completion zsh)"; compdef _op op
 
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH="$PATH:${KREW_ROOT:-$HOME/.krew}/bin"
 
-export PATH="$(brew --prefix)/opt/mysql-client/bin:$PATH"
+export PATH="$PATH:$(brew --prefix)/opt/mysql-client/bin"
 
-export PATH="$(brew --prefix)/opt/openssl@3/bin:$PATH"
+export PATH="$PATH:$(brew --prefix)/opt/openssl@3/bin"
 
-export PATH="$(brew --prefix)/opt/python/libexec/bin:$PATH"
+export PATH="$PATH:$(brew --prefix)/opt/python/libexec/bin"
 
-export PATH="$(brew --prefix)/opt/ruby/bin:$PATH"
+export PATH="$PATH:$(brew --prefix)/opt/ruby/bin"
+
+export PATH="$PATH:$(pipx environment --value PIPX_BIN_DIR)"
 
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
 alias k=kubectl
-
-alias java8="export JAVA_HOME=`/usr/libexec/java_home -v 1.8`; java -version"
-alias java11="export JAVA_HOME=`/usr/libexec/java_home -v 11`; java -version"
-alias java17="export JAVA_HOME=`/usr/libexec/java_home -v 17`; java -version"
