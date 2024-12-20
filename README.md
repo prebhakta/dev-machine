@@ -72,12 +72,6 @@ NOTE: do not install Logitech Options+
     kubectl krew install tree
     ```
 
-### Powerlevel10k Configuration
-
-1. Run `p10k configure`
-1. Answer Yes when asked whether to install Meslo Nerd Font
-1. Answer the remaining questions
-
 ### iTerm2
 
 #### Set Default Terminal
@@ -89,7 +83,6 @@ NOTE: do not install Logitech Options+
 #### Import Profile
 
 1. Open Settings > Profiles
-1. Rename the default profile to something else
 1. Import the profile iterm2-profile.json
 1. Delete the old default profile
 
@@ -97,6 +90,12 @@ NOTE: do not install Logitech Options+
 
 1. Open Settings > Keys > Hotkey
 1. Set Hotkey to "Command + i"
+
+### Powerlevel10k Configuration
+
+1. Run `source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme`
+1. Answer Yes when asked whether to install Meslo Nerd Font
+1. Answer the remaining questions
 
 ### Zsh Configuration
 
