@@ -64,7 +64,10 @@ source $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/comple
 
 eval "$(direnv hook zsh)"
 
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
 eval "$(pyenv virtualenv-init -)"
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
@@ -72,6 +75,9 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH="$(brew --prefix)/opt/openssl@3/bin:$PATH"
 
 export PATH="$(brew --prefix)/opt/ruby/bin:$PATH"
+
+# pipx ensurepath
+export PATH="$PATH:$HOME/.local/bin"
 
 export AWS_DEFAULT_SSO_START_URL="https://protect-ai.awsapps.com/start"
 export AWS_DEFAULT_SSO_REGION=us-west-2
