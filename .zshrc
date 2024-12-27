@@ -27,9 +27,9 @@ function bw_unlock() {
 
   case "${BW_STATUS}" in
     "unauthenticated")
-      echo "Logging into BitWarden"
-      export BW_SESSION=$(bw login --raw)
-      ;;
+      echo "Logging into BitWarden via apikey"
+      bw login --apikey
+      ;&
     "locked")
       echo "Unlocking Vault"
       export BW_SESSION=$(bw unlock $(op item get Bitwarden --vault ProtectAI --fields password --reveal) --raw)
