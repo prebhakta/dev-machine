@@ -83,4 +83,9 @@ export AWS_DEFAULT_SSO_START_URL="https://protect-ai.awsapps.com/start"
 export AWS_DEFAULT_SSO_REGION=us-west-2
 export AWS_DEFAULT_REGION=us-west-2
 
-alias k=kubectl
+alias cat="bat --paging=never --style=plain"
+
+alias k="kubectl"
+
+alias ls='eza -l --group-directories-first --color=auto --git --icons --no-permissions --no-user'
+alias ll='eza -lahF --group-directories-first --color=auto --git --icons'
