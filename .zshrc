@@ -36,9 +36,11 @@ function bw_unlock() {
     "locked")
       echo "Unlocking Vault"
       export BW_SESSION=$(bw unlock $(op item get Bitwarden --vault ProtectAI --fields password --reveal) --raw)
+      echo "export BW_SESSION=$(echo $BW_SESSION)"
       ;;
     "unlocked")
       echo "Vault is unlocked"
+      echo "export BW_SESSION=$(echo $BW_SESSION)"
       ;;
     *)
       echo "Unknown Login Status: ${BW_STATUS}"
@@ -47,11 +49,6 @@ function bw_unlock() {
   esac
 
   bw sync
-}
-
-function setup() {
-  bw_unlock
-  aws-sso-util login
 }
 
 # iTerm2 Zsh integration
