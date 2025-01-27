@@ -13,13 +13,23 @@
 
 ### SSH Key
 
+1. Copy ssh config
+    ```sh
+    cp .ssh/config ~/.ssh/
+    ```
 1. Import public and private key
 1. Change permissions
     ```sh
     chmod 700 ~/.ssh/
-    chmod 644 id_ed25519.pub
-    chmod 600 id_ed25519
+    chmod 644 ~/.ssh/id_ed25519.pub
+    chmod 600 ~/.ssh/id_ed25519
+    chmod 600 ~/.ssh/config
     ```
+1. Store passphrase in the Keychain
+    ```sh
+    ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+    ```
+
 
 ### GPG Key
 
