@@ -82,6 +82,8 @@ export PATH="$(brew --prefix)/opt/ruby/bin:$PATH"
 # pipx ensurepath
 export PATH="$PATH:$HOME/.local/bin"
 
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
+
 export AWS_DEFAULT_SSO_START_URL="https://protect-ai.awsapps.com/start"
 export AWS_DEFAULT_SSO_REGION=us-west-2
 export AWS_DEFAULT_REGION=us-west-2
