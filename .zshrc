@@ -35,20 +35,22 @@ function bw_unlock() {
       ;&
     "locked")
       echo "Unlocking Vault"
-      export BW_SESSION=$(bw unlock $(op item get Bitwarden --vault ProtectAI --fields password --reveal) --raw)
-      echo "export BW_SESSION=$(echo $BW_SESSION)"
+      op item edit Bitwarden --vault ProtectAI BW_SESSION=$(bw unlock $(op item get Bitwarden --vault ProtectAI --fields password --reveal) --raw)
+      bw_set_session
       ;;
     "unlocked")
       echo "Vault is unlocked"
-      echo "export BW_SESSION=$(echo $BW_SESSION)"
       ;;
     *)
       echo "Unknown Login Status: ${BW_STATUS}"
       return 1
       ;;
   esac
+}
 
-  bw sync
+function bw_set_session() {
+  echo "Setting BW_SESSION"
+  export BW_SESSION=$(op item get Bitwarden --vault ProtectAI --fields BW_SESSION --reveal)
 }
 
 # iTerm2 Zsh integration
