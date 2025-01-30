@@ -53,6 +53,25 @@ function bw_set_session() {
   export BW_SESSION=$(op item get Bitwarden --vault ProtectAI --fields BW_SESSION --reveal)
 }
 
+function services_login() {
+  echo "AWS SSO Login"
+  aws-sso-util login
+
+  echo "Prod ECR Docker Login"
+  source awsume Protect-AI.ImagePull
+  aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 268285133770.dkr.ecr.us-west-2.amazonaws.com
+
+  echo "Dev ECR Docker Login"
+  source awsume Protect-AI-Playground.AdministratorAccess
+  aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 002690075511.dkr.ecr.us-west-2.amazonaws.com
+
+  echo "Replicated Docker & Helm Login"
+  LICENSE_ID=$(bw get notes "Replicated License - pre-stable-testing")
+
+  echo $LICENSE_ID | docker login proxy.platform.protectai.com --username user --password-stdin
+  echo $LICENSE_ID | helm registry login registry.replicated.com --username user --password-stdin
+}
+
 # iTerm2 Zsh integration
 source ~/.iterm2_shell_integration.zsh
 
