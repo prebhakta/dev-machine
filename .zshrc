@@ -40,6 +40,7 @@ function bw_unlock() {
       ;;
     "unlocked")
       echo "Vault is unlocked"
+      bw_set_session
       ;;
     *)
       echo "Unknown Login Status: ${BW_STATUS}"
@@ -112,3 +113,5 @@ alias k="kubectl"
 
 alias ls='eza -l --group-directories-first --color=auto --git --icons --no-permissions --no-user'
 alias ll='eza -lahF --group-directories-first --color=auto --git --icons'
+
+bw_set_session
