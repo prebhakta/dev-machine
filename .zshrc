@@ -50,7 +50,6 @@ function bw_unlock() {
 }
 
 function bw_set_session() {
-  echo "Setting BW_SESSION"
   export BW_SESSION=$(op item get Bitwarden --vault ProtectAI --fields BW_SESSION --reveal)
 }
 
@@ -114,4 +113,6 @@ alias k="kubectl"
 alias ls='eza -l --group-directories-first --color=auto --git --icons --no-permissions --no-user'
 alias ll='eza -lahF --group-directories-first --color=auto --git --icons'
 
-bw_set_session
+if [ -z "$BW_SESSION" ]; then
+  bw_set_session
+fi
