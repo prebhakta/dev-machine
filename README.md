@@ -137,9 +137,9 @@
 
 ### Powerlevel10k Configuration
 
-1. Load theme
+1. Start configuration wizard
     ```sh
-    source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+    p10k configure
     ```
 1. Answer Yes when asked whether to install Meslo Nerd Font
 1. Answer the remaining questions
