@@ -31,21 +31,6 @@
     ssh-add --apple-use-keychain ~/.ssh/id_ed25519
     ```
 
-
-### GPG Key
-
-1. Import public and private key
-    ```sh
-    # Download public and private key from 1Password
-
-    gpg --import public.key
-    gpg --import public.key
-    ```
-1. Configure git
-    ```sh
-    git config --global user.signingkey "A5B36F1B694D802B"
-    ```
-
 ### karabiner-elements
 
 1. Install (https://karabiner-elements.pqrs.org)
@@ -68,6 +53,7 @@ NOTE: do not install Logitech Options+
 1. Install (https://brew.sh)
     ```sh
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    exec zsh -l
     ```
 1. Add to shell env
     ```sh
@@ -77,6 +63,20 @@ NOTE: do not install Logitech Options+
 1. Install bundle
     ```sh
     brew bundle install
+    ```
+
+### GPG Key
+
+1. Import public and private key
+    ```sh
+    # Download public and private key from 1Password
+
+    gpg --import public.key
+    gpg --import public.key
+    ```
+1. Configure git
+    ```sh
+    git config --global user.signingkey "A5B36F1B694D802B"
     ```
 
 ### Non-brew
