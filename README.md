@@ -15,6 +15,7 @@
 
 1. Copy ssh config
     ```sh
+    mkdir -p ~/.ssh/
     cp .ssh/config ~/.ssh/
     ```
 1. Import public and private key
