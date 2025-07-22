@@ -71,9 +71,19 @@
     gpg --import public.key
     gpg --import private.key
     ```
+1. Get signing key
+    ```sh
+    gpg --list-secret-keys --keyid-format=long
+
+    # Get the signing key (e.g. 3AA5C34371567BD2)
+    # sec   4096R/3AA5C34371567BD2 2016-03-10 [expires: 2017-03-10]
+    # uid                          Hubot <hubot@example.com>
+    # ssb   4096R/4BB6D45482678BE3 2016-03-10
+    ```
 1. Configure git
     ```sh
-    git config --global user.signingkey "A5B36F1B694D802B"
+    # Set the signing key
+    git config --global user.signingkey "SIGNING-KEY"
     ```
 
 ### Non-brew
