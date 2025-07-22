@@ -11,6 +11,22 @@
     ```
 1. Follow prompts to install
 
+### karabiner-elements
+
+1. Install (https://karabiner-elements.pqrs.org)
+1. Open the app and grant permissions
+1. Copy config
+    ```sh
+    mkdir -p ~/.config/karabiner/
+    cp -r karabiner/ ~/.config/karabiner/
+    ```
+1. Verify keyboard settings
+
+### Logitech Options
+
+1. Install (https://www.logitech.com/en-us/software/options.html)
+1. Follow setup
+
 ### SSH Key
 
 1. Copy ssh config
@@ -30,24 +46,6 @@
     ```sh
     ssh-add --apple-use-keychain ~/.ssh/id_ed25519
     ```
-
-### karabiner-elements
-
-1. Install (https://karabiner-elements.pqrs.org)
-1. Copy config
-    ```sh
-    mkdir -p ~/.config/karabiner/
-    cp -r karabiner/ ~/.config/karabiner/
-    ```
-1. Open the app
-1. Verify keyboard settings
-
-### Logitech Options
-
-NOTE: do not install Logitech Options+
-
-1. Install (https://www.logitech.com/en-us/software/options.html)
-1. Setup side button for Mission Control
 
 ### Homebrew
 
