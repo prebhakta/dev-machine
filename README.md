@@ -128,7 +128,7 @@
 
 1. Open iTerm2
 1. Click iTerm from the menu
-1. Click "Make iTerm2 the default Term
+1. Click "Make iTerm2 the default Term"
 
 #### Import Settings
 
