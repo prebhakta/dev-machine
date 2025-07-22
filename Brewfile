@@ -1,6 +1,4 @@
 tap "derailed/k9s"
-tap "homebrew/bundle"
-tap "homebrew/services"
 tap "romkatv/powerlevel10k"
 tap "spacelift-io/spacelift"
 brew "act"
