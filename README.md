@@ -68,10 +68,8 @@
 
 1. Import public and private key
     ```sh
-    # Download public and private key from 1Password
-
     gpg --import public.key
-    gpg --import public.key
+    gpg --import private.key
     ```
 1. Configure git
     ```sh
