@@ -36,6 +36,7 @@
 1. Install (https://karabiner-elements.pqrs.org)
 1. Copy config
     ```sh
+    mkdir -p ~/.config/karabiner/
     cp -r karabiner/ ~/.config/karabiner/
     ```
 1. Open the app
