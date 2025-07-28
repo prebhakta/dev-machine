@@ -35,7 +35,7 @@ function bw_unlock() {
       ;&
     "locked")
       echo "Unlocking Vault"
-      op item edit Bitwarden --vault ProtectAI BW_SESSION=$(bw unlock $(op item get Bitwarden --vault ProtectAI --fields password --reveal) --raw)
+      op item edit Bitwarden --vault "Palo Alto Networks" BW_SESSION=$(bw unlock $(op item get Bitwarden --vault "Palo Alto Networks" --fields password --reveal) --raw)
       bw_set_session
       ;;
     "unlocked")
@@ -50,7 +50,7 @@ function bw_unlock() {
 }
 
 function bw_set_session() {
-  export BW_SESSION=$(op item get Bitwarden --vault ProtectAI --fields BW_SESSION --reveal)
+  export BW_SESSION=$(op item get Bitwarden --vault "Palo Alto Networks" --fields BW_SESSION --reveal)
 }
 
 function services_login() {
@@ -68,7 +68,7 @@ function services_login() {
   echo "Replicated Docker & Helm Login"
   LICENSE_ID=$(bw get notes "Replicated License - pre-stable-testing")
 
-  echo $LICENSE_ID | docker login proxy.platform.protectai.com --username user --password-stdin
+  echo $LICENSE_ID | docker login proxy.platform."Palo Alto Networks".com --username user --password-stdin
   echo $LICENSE_ID | helm registry login registry.replicated.com --username user --password-stdin
 }
 
