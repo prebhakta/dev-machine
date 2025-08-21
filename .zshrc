@@ -72,6 +72,11 @@ function services_login() {
   echo $LICENSE_ID | helm registry login registry.replicated.com --username user --password-stdin
 }
 
+function flush_dns() {
+  echo "Flushing DNS cache"
+  sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
+}
+
 # iTerm2 Zsh integration
 source ~/.iterm2_shell_integration.zsh
 
