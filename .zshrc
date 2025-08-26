@@ -68,8 +68,8 @@ function services_login() {
   echo "Replicated Docker & Helm Login"
   LICENSE_ID=$(bw get notes "Replicated License - pre-stable-testing")
 
-  echo $LICENSE_ID | docker login proxy.platform."Palo Alto Networks".com --username user --password-stdin
-  echo $LICENSE_ID | helm registry login registry.replicated.com --username user --password-stdin
+  echo $LICENSE_ID | docker login proxy.platform.protectai.com --username user --password-stdin
+  echo $LICENSE_ID | helm registry login registry.platform.protectai.com --username user --password-stdin
 }
 
 function flush_dns() {
