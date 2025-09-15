@@ -83,8 +83,8 @@ source ~/.iterm2_shell_integration.zsh
 source $(brew --prefix)/etc/bash_completion.d/az
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
-source $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+source $(brew --prefix)/Caskroom/gcloud-cli/latest/google-cloud-sdk/path.zsh.inc
+source $(brew --prefix)/Caskroom/gcloud-cli/latest/google-cloud-sdk/completion.zsh.inc
 [[ $(brew --prefix)/bin/fzf ]] && source <(fzf --zsh)
 [[ $(brew --prefix)/bin/kubectl ]] && source <(kubectl completion zsh)
 
