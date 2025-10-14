@@ -88,13 +88,10 @@ source $(brew --prefix)/Caskroom/gcloud-cli/latest/google-cloud-sdk/completion.z
 [[ $(brew --prefix)/bin/fzf ]] && source <(fzf --zsh)
 [[ $(brew --prefix)/bin/kubectl ]] && source <(kubectl completion zsh)
 
+eval "$(uv generate-shell-completion zsh)"
+eval "$(uvx --generate-shell-completion zsh)"
+
 eval "$(direnv hook zsh)"
-
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-eval "$(pyenv virtualenv-init -)"
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 

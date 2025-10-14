@@ -148,18 +148,14 @@
 
 1. Install multiple versions
     ```sh
-    pyenv install 3.11 3.12 3.13
-    ```
-1. Set a global version and install pipx
-    ```sh
-    pyenv global 3.13
-    pip install pipx
+    uv python install 3.11 3.12 3.13 3.14
     ```
 1. An example of configuring a virtual environment and pinning a project
     ```sh
     cd project-dir
-    pyenv virtualenv 3.11 project-name
-    pyenv local project-name
+    uv venv --python 3.13
+    echo "source .venv/bin/activate" > .envrc
+    direnv allow
     ```
 
 ### awsume
