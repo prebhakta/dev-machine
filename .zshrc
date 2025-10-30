@@ -113,7 +113,7 @@ alias cat="bat --paging=never --style=plain"
 alias k="kubectl"
 
 alias ls='eza -l --group-directories-first --color=auto --git --icons --no-permissions --no-user'
-alias ll='eza -lahF --group-directories-first --color=auto --git --icons'
+alias ll='eza --color=always --icons=always --group-directories-first -l --git -h'
 
 if [ -z "$BW_SESSION" ]; then
   bw_set_session
