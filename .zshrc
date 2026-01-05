@@ -72,6 +72,17 @@ function services_login() {
   echo $LICENSE_ID | helm registry login registry.platform.protectai.com --username user --password-stdin
 }
 
+function claude_login() {
+  echo "GCP login"
+  gcloud auth application-default login
+  gcloud config set project airs-api-test1
+
+  export CLAUDE_CODE_USE_VERTEX=1
+  export CLOUD_ML_REGION=us-east5
+  export ANTHROPIC_VERTEX_PROJECT_ID=pairs-sharedsvc-prd-wrk-std-cc
+  export ANTHROPIC_DEFAULT_HAIKU_MODEL=claude-haiku-4-5@20251001
+}
+
 function flush_dns() {
   echo "Flushing DNS cache"
   sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
