@@ -25,34 +25,6 @@ plugins=(brew colored-man-pages git git-flow kubectl macos z)
 
 source $ZSH/oh-my-zsh.sh
 
-function bw_unlock() {
-  BW_STATUS=$(bw status | jq -r .status)
-
-  case "${BW_STATUS}" in
-    "unauthenticated")
-      echo "Logging into BitWarden via apikey"
-      bw login --apikey
-      ;&
-    "locked")
-      echo "Unlocking Vault"
-      op item edit Bitwarden --vault "Palo Alto Networks" BW_SESSION=$(bw unlock $(op item get Bitwarden --vault "Palo Alto Networks" --fields password --reveal) --raw)
-      bw_set_session
-      ;;
-    "unlocked")
-      echo "Vault is unlocked"
-      bw_set_session
-      ;;
-    *)
-      echo "Unknown Login Status: ${BW_STATUS}"
-      return 1
-      ;;
-  esac
-}
-
-function bw_set_session() {
-  export BW_SESSION=$(op item get Bitwarden --vault "Palo Alto Networks" --fields BW_SESSION --reveal)
-}
-
 function services_login() {
   echo "AWS SSO Login"
   aws-sso-util login
@@ -66,7 +38,7 @@ function services_login() {
   aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 002690075511.dkr.ecr.us-west-2.amazonaws.com
 
   echo "Replicated Docker & Helm Login"
-  LICENSE_ID=$(bw get notes "Replicated License - pre-stable-testing")
+  LICENSE_ID=$(op item get "Replicated License - pre-stable-testing" --vault "Palo Alto Networks" --fields password --reveal)
 
   echo $LICENSE_ID | docker login proxy.platform.protectai.com --username user --password-stdin
   echo $LICENSE_ID | helm registry login registry.platform.protectai.com --username user --password-stdin
@@ -126,6 +98,4 @@ alias k="kubectl"
 alias ls='eza -l --group-directories-first --color=auto --git --icons --no-permissions --no-user'
 alias ll='eza --color=always --icons=always --group-directories-first -l --git -h'
 
-if [ -z "$BW_SESSION" ]; then
-  bw_set_session
-fi
+
