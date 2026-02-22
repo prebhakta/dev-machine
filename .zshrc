@@ -45,14 +45,13 @@ function services_login() {
 }
 
 function claude_login() {
-  echo "GCP login"
-  gcloud auth application-default login
-  gcloud config set project airs-api-test1
-
   export CLAUDE_CODE_USE_VERTEX=1
   export CLOUD_ML_REGION=us-east5
   export ANTHROPIC_VERTEX_PROJECT_ID=pairs-sharedsvc-prd-wrk-std-cc
-  export ANTHROPIC_DEFAULT_HAIKU_MODEL=claude-haiku-4-5@20251001
+  
+  echo "GCP login"
+  gcloud auth application-default login
+  gcloud config set project pairs-sharedsvc-prd-wrk-std-cc
 }
 
 function flush_dns() {
