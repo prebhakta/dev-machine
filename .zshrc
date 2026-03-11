@@ -95,4 +95,4 @@ alias cat="bat --paging=never --style=plain"
 alias k="kubectl"
 
 alias ls='eza -l --color=auto --icons --group-directories-first --git --no-permissions --no-user'
-alias ll='eza -lra --color=always --icons=always --group-directories-first --git -h'
+alias ll='eza -la --color=always --icons=always --group-directories-first --git -h'
