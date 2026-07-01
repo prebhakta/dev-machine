@@ -25,8 +25,17 @@ plugins=(brew colored-man-pages git git-flow kubectl macos z)
 
 source $ZSH/oh-my-zsh.sh
 
-function disable_PAA() {
-  /Applications/Prisma\ Access\ Agent.app/Contents/Helpers/pacli disable
+function toggle_PAA() {
+  local pacli="/Applications/Prisma Access Agent.app/Contents/Helpers/pacli"
+  local state=$("$pacli" status --json | jq -r '.state')
+
+  if [[ "$state" == "Disabled" ]]; then
+    echo "Enabling Prisma Access Agent..."
+    "$pacli" enable
+  else
+    echo "Disabling Prisma Access Agent (current state: $state)..."
+    "$pacli" disable
+  fi
 }
 
 function services_login() {
