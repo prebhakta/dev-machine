@@ -25,6 +25,10 @@ plugins=(brew colored-man-pages git git-flow kubectl macos z)
 
 source $ZSH/oh-my-zsh.sh
 
+function disable_PAA() {
+  /Applications/Prisma\ Access\ Agent.app/Contents/Helpers/pacli disable
+}
+
 function services_login() {
   echo "AWS SSO Login"
   aws-sso-util login
